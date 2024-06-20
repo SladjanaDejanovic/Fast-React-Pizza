@@ -4,6 +4,7 @@ import Header from "./Header";
 import Loader from "./Loader";
 
 function AppLayout() {
+  // navigation state can be idle, loading, submitting
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
 
