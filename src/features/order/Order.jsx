@@ -1,6 +1,6 @@
 // Test ID: IIDSAT
 
-import { useRouteLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import {
   calcMinutesLeft,
@@ -9,18 +9,22 @@ import {
 } from "../../utils/helpers";
 
 function Order() {
-  const order = useRouteLoaderData();
+  const order = useLoaderData();
+  console.log("Order data:", order);
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
-    // id,
+    id,
     status,
     priority,
     priorityPrice,
     orderPrice,
     estimatedDelivery,
-    // cart,
+    cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
+
+  console.log(cart, id);
 
   return (
     <div>
@@ -54,6 +58,7 @@ function Order() {
 //what params we need as function arguments
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);
+
   return order;
 }
 
