@@ -2,6 +2,7 @@
 
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
+import Button from "../../ui/Button";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -84,15 +85,9 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button
-            disabled={isSubmitting}
-            className="bg-yellow-400 uppercase tracking-wide rounded-full 
-          font-semibold text-stone-800 py-3 px-4 inline-block hover:bg-yellow-300 
-          transition-colors duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2
-           focus:bg-yellow-300 disabled:cursor-not-allowed"
-          >
+          <Button disabled={isSubmitting}>
             {isSubmitting ? "Placing order..." : "Order now"}
-          </button>
+          </Button>
         </div>
       </Form>
     </div>
