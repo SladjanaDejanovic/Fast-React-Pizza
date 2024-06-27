@@ -1,3 +1,4 @@
+/*
 function getPosition() {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -19,3 +20,27 @@ async function fetchAddress() {
   // 3) Then we return an object with the data that we are interested in
   return { position, address };
 }
+*/
+
+//slice of global ui state, called user, that has initial state (object of states wee defined) and reducers
+//since we are using redux toolkit we can directly mutate state object
+// inside userSLice.actions we have access to action creators
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  username: "",
+};
+
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    updateName(state, action) {
+      state.username = action.payload;
+    },
+  },
+});
+
+export const { updateName } = userSlice.actions;
+export default userSlice.reducer;
