@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  //   cart: [],
-  cart: [
-    {
-      pizzaId: 12,
-      name: "Mediterranean",
-      quantity: 2,
-      unitPrice: 16,
-      totalPrice: 32,
-    },
-  ],
+  cart: [],
+  //   cart: [
+  //     {
+  //       pizzaId: 12,
+  //       name: "Mediterranean",
+  //       quantity: 2,
+  //       unitPrice: 16,
+  //       totalPrice: 32,
+  //     },
+  //   ],
 };
 
 const cartSlice = createSlice({
@@ -54,3 +54,11 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+// redux selector function. standard is that these functions start with get keyword, and that we have them all in central place, in slice file, bc we'll need this in another component later
+// having multiple selector functions like this can cause performance issues in larger applications, so for that is used reselect library which will allow us to optimize these selectors
+export const getTotalCartQuantity = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.quantity, 0);
+
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);
