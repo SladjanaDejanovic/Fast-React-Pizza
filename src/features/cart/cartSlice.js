@@ -55,6 +55,8 @@ export const {
 
 export default cartSlice.reducer;
 
+export const getCart = (state) => state.cart.cart;
+
 // redux selector function. standard is that these functions start with get keyword, and that we have them all in central place, in slice file, bc we'll need this in another component later
 // having multiple selector functions like this can cause performance issues in larger applications, so for that is used reselect library which will allow us to optimize these selectors
 export const getTotalCartQuantity = (state) =>
