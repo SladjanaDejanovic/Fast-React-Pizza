@@ -7,8 +7,7 @@ const initialState = {
   //       pizzaId: 12,
   //       name: "Mediterranean",
   //       quantity: 2,
-  //       unitPrice: 16,
-  //       totalPrice: 32,
+
   //     },
   //   ],
 };
