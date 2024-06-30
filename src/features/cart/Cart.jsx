@@ -14,10 +14,7 @@ import EmptyCart from "./EmptyCart";
 //     totalPrice: 32,
 //   },
 //   {
-//     pizzaId: 6,
-//     name: "Vegetale",
-//     quantity: 1,
-//     unitPrice: 13,
+//   ,
 //     totalPrice: 13,
 //   },
 //   {
