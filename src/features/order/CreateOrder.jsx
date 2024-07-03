@@ -17,13 +17,7 @@ const isValidPhone = (str) =>
   );
 
 // const fakeCart = [
-//   {
-//     pizzaId: 12,
-//     name: "Mediterranean",
-//     quantity: 2,
-//     unitPrice: 16,
-//     totalPrice: 32,
-//   },
+// 
 //   {
 //     pizzaId: 6,
 //     name: "Vegetale",
