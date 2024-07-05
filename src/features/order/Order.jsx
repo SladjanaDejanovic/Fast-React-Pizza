@@ -9,10 +9,11 @@ import {
   formatDate,
 } from "../../utils/helpers";
 import { useEffect } from "react";
+import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
-  console.log("Order data:", order);
+  // console.log("Order data:", order);
 
   const fetcher = useFetcher();
   // this will load data from menu on mount and will store it in fetcher object
@@ -37,7 +38,7 @@ function Order() {
 
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
-  console.log(cart, id);
+  // console.log(cart, id);
 
   return (
     <div className="py-6 px-4 space-y-8">
@@ -94,6 +95,8 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }

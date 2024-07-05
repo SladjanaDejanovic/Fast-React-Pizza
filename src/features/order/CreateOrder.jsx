@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
 import Button from "../../ui/Button";
@@ -46,7 +44,7 @@ function CreateOrder() {
     address,
     error: errorAddress,
   } = useSelector((state) => state.user);
-  console.log(position);
+  console.log("User position:", position);
 
   const isLoadingAddress = addressStatus === "loading";
 
@@ -59,6 +57,10 @@ function CreateOrder() {
   const totalCartPrice = useSelector(getTotalCartPrice);
   const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
   const totalPrice = totalCartPrice + priorityPrice;
+
+  // console.log("Cart:", cart);
+  // console.log("Total Cart Price:", totalCartPrice);
+  // console.log("Total Price with Priority:", totalPrice);
 
   if (!cart.length) return <EmptyCart />;
 
@@ -118,6 +120,7 @@ function CreateOrder() {
                 type="small"
                 onClick={(e) => {
                   e.preventDefault();
+
                   dispatch(fetchAddress());
                 }}
               >
@@ -146,7 +149,7 @@ function CreateOrder() {
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <input
             type="hidden"
-            name="cart"
+            name="position"
             value={
               position.longitude && position.latitude
                 ? `${position.latitude}, ${position.longitude}`
@@ -168,11 +171,15 @@ export async function action({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
+  // console.log("Form Data:", data);
+
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
     priority: data.priority === "true",
   };
+
+  // console.log("Order Data:", order);
 
   const errors = {};
 
@@ -185,6 +192,7 @@ export async function action({ request }) {
 
   // if everything is ok, create new order and redirect
   const newOrder = await createOrder(order);
+  // console.log("New Order:", newOrder);
 
   // hacky approach how to get to store (clear cart has to happen inside this form action, but for dispatching we have to call useDispatch hook and that is only availavble in components. so we directly import store object here and directly dispatch on that store)
   //shouldnt be overused bc it deactivates couple of optimization performances of redux on this page
