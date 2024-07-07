@@ -60,7 +60,6 @@ function CreateOrder() {
 
   // console.log("Cart:", cart);
   // console.log("Total Cart Price:", totalCartPrice);
-  // console.log("Total Price with Priority:", totalPrice);
 
   if (!cart.length) return <EmptyCart />;
 
