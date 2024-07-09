@@ -14,8 +14,7 @@ import EmptyCart from "./EmptyCart";
 //     totalPrice: 32,
 //   },
 //   {
-//   ,
-//     totalPrice: 13,
+
 //   },
 //   {
 //     pizzaId: 11,
