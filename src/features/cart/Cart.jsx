@@ -11,7 +11,6 @@ import EmptyCart from "./EmptyCart";
 //     name: "Mediterranean",
 //     quantity: 2,
 //     unitPrice: 16,
-//     totalPrice: 32,
 //   },
 //   {
 
