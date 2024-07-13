@@ -19,8 +19,7 @@ import EmptyCart from "./EmptyCart";
 //     pizzaId: 11,
 //     name: "Spinach and Mushroom",
 //     quantity: 1,
-//     unitPrice: 15,
-//     totalPrice: 15,
+
 //   },
 // ];
 
