@@ -9,8 +9,7 @@ import EmptyCart from "./EmptyCart";
 //   {
 //     pizzaId: 12,
 //     name: "Mediterranean",
-//     quantity: 2,
-//     unitPrice: 16,
+
 //   },
 //   {
 
