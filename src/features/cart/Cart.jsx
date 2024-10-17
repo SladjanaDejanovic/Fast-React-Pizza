@@ -16,7 +16,7 @@ import EmptyCart from "./EmptyCart";
 //   },
 //   {
 //     pizzaId: 11,
-//     name: 
+
 //   },
 // ];
 
